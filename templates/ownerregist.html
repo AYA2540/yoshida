@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="regist_form">
+    <form action="/regist" method="POST">
+        <div>
+            <label for="user_name">名前</label>
+            <br>
+            <input type="text" name="name" id="user_name">
+        </div>
+        <div>
+            <label for="user_pass">パスワード</label>
+            <br>
+            <input type="password" name="password" id="user_pass">
+        </div>
+        <input type="submit" name="save" value="完了" class="regist_submit owner_btn">
+    </form>
+</div>
+
+{% endblock %}

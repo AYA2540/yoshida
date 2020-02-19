@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="owner_wrapper">
+    <div class="edit_wrapper">
+        <a class="edit edit_btn">編 集</a>
+    </div>
+
+    <div class="member">
+        <h1>会員リスト</h1>
+        <p>合計: {{member}}人</p>
+    </div>
+
+    <table border="1" id="user_table">
+        {% for item in user_list%}
+        <tr>
+            <td>{{item["id"]}}</td>
+            <td>{{item["name"]}}</td>
+            <td class="del_btn"><a class="delete_btn" data-id="{{item['id']}}">退会</a></td>
+        </tr>
+
+        <div class="modal_wrapper" id="del_modal{{item['id']}}">
+            <div class="modal modal_adult">
+                <div class="modal_child">
+                    <h2>{{item["name"]}}さんの</h2>
+                    <h2>退会を許可しますか？</h2>
+
+                    <form action="/del/{{item['id']}}">
+                        <input type="submit" name="decision" value="はい" class="yes_btn btn">
+                    </form>
+                    <button class="no_btn del_no btn" data-id="{{item['id']}}">いいえ</button>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </table>
+
+    <button id="regist_btn" class="owner_btn">新規会員登録</button>
+
+    <div class="modal_wrapper" id="regist_modal">
+        <div class="modal">
+            <div class="close-modal">
+                <i class="fa fa-2x fa-times"></i>
+            </div>
+            <div id="regist_form">
+                <form action="/regist" method="POST">
+                    <div>
+                        <label for="user_name">名前</label>
+                        <br>
+                        <input type="text" name="name" id="user_name">
+                    </div>
+                    <div>
+                        <label for="user_pass">パスワード</label>
+                        <br>
+                        <input type="password" name="password" id="user_pass">
+                    </div>
+                    <input type="submit" name="save" value="完了" class="regist_submit owner_btn">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,321 @@
+@charset "UTF-8";
+
+html {
+    overflow-y: scroll;
+}
+
+/* リセットおまじない--------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+div {
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+
+body {
+    background: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    min-width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    border: 0px;
+    vertical-align: bottom;
+}
+
+/* --------------------------------------------------- */
+
+body {
+    font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, Century Gothic, Arial;
+}
+
+/* 入店・退店ページ */
+#list_wrapper,
+#owner_wrapper {
+    width: 650px;
+    margin: 0 auto 30px;
+}
+
+#list_wrapper h1 {
+    margin: 30px 0;
+}
+
+#list_table {
+    width: 600px;
+    margin: 0 auto;
+}
+
+#list_table tr {
+    height: 60px;
+}
+
+#list_table tr a {
+    font-size: 24px;
+    letter-spacing: 5px;
+}
+
+.out_store {
+    color: black;
+}
+
+.in_store {
+    color: red;
+}
+
+.modal_wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e6ecf0;
+    padding: 20px 0;
+    border-radius: 10px;
+    width: 500px;
+    height: 300px;
+    text-align: center;
+}
+
+.modal_adult {
+    position: relative;
+}
+
+.modal_child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+}
+
+.fa-times {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: rgba(128, 128, 128, 0.46);
+    cursor: pointer;
+}
+
+.yes_btn {
+    background-color: #7BC576;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.no_btn {
+    background-color: #FF4A4D;
+}
+
+.btn {
+    font-size: 20px;
+    color: white;
+    width: 150px;
+    height: 60px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.guest {
+    font-size: 24px;
+    height: 50px;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.welcome_video,
+.thanks_img {
+    width: 500px;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 入店状況確認ページ */
+#enter_wrapper {
+    width: 850px;
+    margin: 0 auto;
+}
+
+#enter_table {
+    width: 800px;
+    margin: 10px auto 20px;
+}
+
+#enter_table tr {
+    height: 50px;
+    font-size: 18px;
+}
+
+#owner_btn {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.owner_btn {
+    background-color: #209000;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 150px;
+    height: 40px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.store p {
+    text-align: right;
+    margin-right: 25px;
+}
+
+.logout_btn,
+.edit_wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.logout_btn a,
+.edit {
+    margin: 20px;
+    background-color: #209000;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+}
+
+/* オーナーページ */
+.member p {
+    text-align: right;
+    margin-right: 25px;
+}
+
+#user_table {
+    width: 600px;
+    margin: 20px auto;
+}
+
+#user_table tr {
+    height: 50px;
+    font-size: 18px;
+}
+
+.del_btn {
+    display: none;
+    cursor: pointer;
+    width: 80px;
+    color: red;
+}
+
+#regist_btn {
+    margin: 0 0 20px;
+}
+
+#regist_form {
+    width: 350px;
+    margin: 0 auto;
+}
+
+#regist_form form {
+    text-align: left;
+}
+
+#regist_form label {
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+#user_name,
+#user_pass {
+    width: 350px;
+    height: 40px;
+    padding: 3px;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: solid 2px #dddddd;
+}
+
+.regist_submit {
+    margin-top: 10px;
+    width: 350px;
+    height: 40px;
+}
+
+/* ログインページ */
+#login_wrapper {
+    background: url(../img/y_login.JPG) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+#login_form {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    display: flex;
+}
+
+#login_form input {
+    line-height: 25px;
+}
+
+.login_btn {
+    background-color: #209000;
+    color: white;
+    border: 1px solid #209000;
+    border-radius: 6px;
+    padding: 2px 15px;
+}

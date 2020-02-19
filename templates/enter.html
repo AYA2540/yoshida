@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="enter_wrapper">
+    <div class="logout_btn">
+        <a href="/logout">ログアウト</a>
+    </div>
+
+    <div class="store">
+        <h1>入店状況</h1>
+        <p>合計: {{member}}人</p>
+    </div>
+
+    <table border="1" id="enter_table">
+        <tr>
+            <th>名前</th>
+            <th>入店時間</th>
+            <th>お連れ様</th>
+        </tr>
+        {% for item in user_list%}
+        <tr>
+            <td>{{item["name"]}}</td>
+            <td>{{item["enter_time"]}}</td>
+            <td>{{item["guest"]}}人</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    {% if user_id == 1 %}
+    <div id="owner_btn">
+        <form action="/owner">
+            <input type="submit" name="decision" value="オーナー管理" class="owner_btn">
+        </form>
+    </div>
+    {% else %}
+    {% endif %}
+
+</div>
+{% endblock %}
