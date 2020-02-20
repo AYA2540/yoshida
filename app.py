@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_bcrypt import Bcrypt
 import string, secrets
 import locale
-locale.setlocale(locale.LC_CTYPE, "Japanese_Japan.932")
+# locale.setlocale(locale.LC_CTYPE, "Japanese_Japan.932")
 
 app = Flask(__name__)
 app.secret_key = "98jf93js9s5j9si9p"
