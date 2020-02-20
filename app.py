@@ -16,7 +16,7 @@ def pass_gen(size=12):
 
 @app.route("/")
 def list():
-    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     c = conn.cursor()
     c.execute("select id, name, flag from users")
     user_list = []
@@ -30,7 +30,7 @@ def list():
 def enter_yes(id):
     guest = request.form.get("number")
     enter_time = datetime.now().strftime("%m月%d日 %H時%M分")
-    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     c = conn.cursor()
     c.execute("insert into times values(null,%s,null,%s,%s)" , (enter_time,id,guest))
     c.execute("update users set flag = 1 where id = %s" ,(id,))
@@ -42,7 +42,7 @@ def enter_yes(id):
 @app.route("/out_yes/<int:id>")
 def out_yes(id):
     out_time = datetime.now().strftime("%m月%d日 %H時%M分")
-    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     c = conn.cursor()
     c.execute("update users set flag = 0 where id = %s" ,(id,))
     c.execute("update times set out_time = %s where user_id = %s and out_time is null" ,(out_time ,id))
@@ -60,7 +60,7 @@ def login():
             return render_template("login.html")
     else:
         name = request.form.get("name")
-        conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+        conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
         c = conn.cursor()
         c.execute("select password from users where name = %s", (name,))
         password = c.fetchone()
@@ -74,7 +74,7 @@ def login():
 
         result = bcrypt.check_password_hash(password, request.form.get("password") + salt)
         if result == True:
-            conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+            conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
             c = conn.cursor()
             c.execute("select id from users where password = %s",(password,))
             user_id = c.fetchone()
@@ -92,7 +92,7 @@ def login():
 @app.route("/enter")
 def enter():
     if "user_id" in session:
-        conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+        conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
         c = conn.cursor()
         c.execute("select count(*) from users where flag = 1")
         member = c.fetchone()
@@ -133,7 +133,7 @@ def owner():
     if "user_id" in session:
         user_id = session["user_id"]
         if user_id == 1:
-            conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+            conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
             c = conn.cursor()
             c.execute("select count(*) from users")
             member = c.fetchone()
@@ -153,7 +153,7 @@ def owner():
 # 退会
 @app.route("/del/<int:id>")
 def del_trash(id):
-    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+    conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     c = conn.cursor()
     c.execute("delete from users where id = %s" , (id,))
     conn.commit()
@@ -165,7 +165,7 @@ def regist():
         name = request.form.get("name")
         salt = pass_gen()
         password = bcrypt.generate_password_hash(request.form.get("password") + salt).decode('utf-8')
-        conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='user')
+        conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
         c = conn.cursor()
         c.execute("insert into users values(null,%s,%s,0,%s)",(name,password,salt))
         conn.commit()
