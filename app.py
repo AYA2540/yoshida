@@ -14,7 +14,7 @@ def pass_gen(size=12):
     chars = string.ascii_uppercase + string.ascii_lowercase + string.digits + '%&$#()'
     return ''.join(secrets.choice(chars) for x in range(size))
 
-@app.route("/")
+@app.route("/wRqZejFP_8X!")
 def user_list():
     # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     conn = mysql.connector.connect(user='be0df0a2c105ea',password='71cdc06b',host='us-cdbr-iron-east-04.cleardb.net',database='heroku_c42eab1ee628ff3')
@@ -27,10 +27,10 @@ def user_list():
     return render_template("list.html" , user_list = user_list)
 
 # 入店ボタンを押した時
-@app.route("/enter_yes/<int:id>", methods=["POST"])
+@app.route("/S5D$7esCgLM(", methods=["POST"])
 def enter_yes(id):
     guest = request.form.get("number")
-    enter_time = datetime.now().strftime("%m月%d日 %H時%M分")
+    enter_time = datetime.now().strftime("%m/%d %H:%M")
     # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     conn = mysql.connector.connect(user='be0df0a2c105ea',password='71cdc06b',host='us-cdbr-iron-east-04.cleardb.net',database='heroku_c42eab1ee628ff3')
     c = conn.cursor()
@@ -41,9 +41,9 @@ def enter_yes(id):
     return redirect("/welcome")
 
 # 退店ボタンを押した時
-@app.route("/out_yes/<int:id>")
+@app.route("/YPk~v.rPh#v8/<int:id>")
 def out_yes(id):
-    out_time = datetime.now().strftime("%m月%d日 %H時%M分")
+    out_time = datetime.now().strftime("%m/%d/ %H:%M")
     # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     conn = mysql.connector.connect(user='be0df0a2c105ea',password='71cdc06b',host='us-cdbr-iron-east-04.cleardb.net',database='heroku_c42eab1ee628ff3')
     c = conn.cursor()
@@ -54,7 +54,7 @@ def out_yes(id):
     return redirect("/thanks")
 
 # ログイン
-@app.route("/login", methods=["GET","POST"])
+@app.route("/HBZT!,+FQhi*", methods=["GET","POST"])
 def login():
     if request.method == "GET":
         if "user_id" in session:
@@ -94,7 +94,7 @@ def login():
             return render_template("login.html")
 
 # 入店状況確認ページ
-@app.route("/enter")
+@app.route("/SwWn#*CW*z/,")
 def enter():
     if "user_id" in session:
         # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
@@ -125,16 +125,16 @@ def enter():
     else:
         return redirect("/login")
 
-@app.route("/welcome" ,methods=["GET"])
+@app.route("/DijdZbQFXcUf" ,methods=["GET"])
 def welcome():
     return render_template("welcome.html")
 
-@app.route("/thanks" ,methods=["GET"])
+@app.route("/)SdYMP/k)SDK" ,methods=["GET"])
 def thanks():
     return render_template("thanks.html")
 
 # オーナーページ
-@app.route("/owner")
+@app.route("/B8)$h9r|Zh6w")
 def owner():
     if "user_id" in session:
         user_id = session["user_id"]
@@ -158,7 +158,7 @@ def owner():
         return redirect("/login")
 
 # 退会
-@app.route("/del/<int:id>")
+@app.route("/uKd4NC3T*fcR/<int:id>")
 def del_trash(id):
     # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     conn = mysql.connector.connect(user='be0df0a2c105ea',password='71cdc06b',host='us-cdbr-iron-east-04.cleardb.net',database='heroku_c42eab1ee628ff3')
@@ -168,7 +168,7 @@ def del_trash(id):
     conn.close()
     return redirect("/owner")
 
-@app.route("/regist", methods=["POST"])
+@app.route("/_WanMc2mx~3f", methods=["POST"])
 def regist():
         name = request.form.get("name")
         salt = pass_gen()
@@ -181,11 +181,11 @@ def regist():
         conn.close()
         return redirect("/owner")
 
-@app.route("/ownerregist")
+@app.route("/ihXW3ay/!5CY")
 def ownerregist():
         return render_template("ownerregist.html")
 
-@app.route("/logout")
+@app.route("/Av4|4cV+sRm9")
 def logout():
     session.pop("user_id" ,None)
     return redirect("/login")

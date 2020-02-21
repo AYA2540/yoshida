@@ -64,24 +64,18 @@ body {
 }
 
 /* 入店・退店ページ */
-#list_wrapper,
-#owner_wrapper {
-    width: 600px;
-    margin: 0 auto 30px;
-}
-
 #list_wrapper h1 {
-    margin: 30px 0;
+    margin: 20px 0;
     font-size: 28px;
 }
 
-#list_table {
-    width: 500px;
-    margin: 0 auto;
+table {
+    width: 90%;
+    margin: 20px auto;
 }
 
 #list_table tr {
-    height: 130px;
+    height: 120px;
 }
 
 #list_table tr a {
@@ -116,7 +110,7 @@ body {
     background-color: #e6ecf0;
     padding: 20px 0;
     border-radius: 10px;
-    width: 500px;
+    width: 300px;
     height: 300px;
     text-align: center;
 }
@@ -152,9 +146,9 @@ body {
 }
 
 .btn {
-    font-size: 30px;
+    font-size: 25px;
     color: white;
-    width: 200px;
+    width: 120px;
     height: 80px;
     border-radius: 6px;
     margin-top: 10px;
@@ -167,7 +161,7 @@ form {
 .guest {
     font-size: 24px;
     height: 50px;
-    width: 410px;
+    width: 250px;
     margin-bottom: 10px;
 }
 
@@ -182,19 +176,9 @@ form {
 }
 
 /* 入店状況確認ページ */
-#enter_wrapper {
-    width: 600px;
-    margin: 0 auto;
-}
-
-#enter_table {
-    width: 550px;
-    margin: 10px auto 20px;
-}
-
 #enter_table tr {
-    height: 100px;
-    font-size: 24px;
+    height: 50px;
+    font-size: 18px;
 }
 
 #owner_btn {
@@ -205,10 +189,10 @@ form {
 .owner_btn {
     background-color: #209000;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 6px;
-    width: 180px;
-    height: 50px;
+    width: 160px;
+    height: 40px;
     margin-right: 20px;
     cursor: pointer;
 }
@@ -216,7 +200,7 @@ form {
 .store p {
     text-align: right;
     margin-right: 25px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .logout_btn,
@@ -230,28 +214,18 @@ form {
     margin: 20px;
     background-color: #209000;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 6px;
-    width: 130px;
-    height: 50px;
-    line-height: 50px;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
 }
 
 /* オーナーページ */
-#owner_wrapper {
-    width: 600px;
-    margin: 0 auto;
-}
-
 .member p {
     text-align: right;
     margin-right: 25px;
-    font-size: 20px;
-}
-
-#user_table {
-    width: 550px;
-    margin: 20px auto;
+    font-size: 18px;
 }
 
 #user_table tr {
@@ -271,7 +245,7 @@ form {
 }
 
 #regist_form {
-    width: 350px;
+    width: 250px;
     margin: 0 auto;
 }
 
@@ -286,7 +260,7 @@ form {
 
 #user_name,
 #user_pass {
-    width: 350px;
+    width: 250px;
     height: 40px;
     padding: 3px;
     font-size: 24px;
@@ -296,13 +270,13 @@ form {
 
 .regist_submit {
     margin-top: 10px;
-    width: 350px;
+    width: 250px;
     height: 40px;
 }
 
 /* ログインページ */
 #login_wrapper {
-    background: url(../img/y_login06.JPG) no-repeat center center;
+    background: url(../img/y_login_sp02.JPG) no-repeat center center;
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -310,16 +284,17 @@ form {
 
 #login_form {
     position: absolute;
-    top: 75%;
+    top: 70%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    width: 280px;
 }
-
 
 #login_form input {
     line-height: 30px;
-    width: 300px;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .login_btn {
@@ -327,5 +302,5 @@ form {
     color: white;
     border: 1px solid #209000;
     border-radius: 6px;
-    padding: 2px 57px;
+    padding: 2px 15px;
 }
