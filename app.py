@@ -15,7 +15,7 @@ def pass_gen(size=12):
     return ''.join(secrets.choice(chars) for x in range(size))
 
 @app.route("/")
-def list():
+def user_list():
     # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     conn = mysql.connector.connect(user='be0df0a2c105ea',password='71cdc06b',host='us-cdbr-iron-east-04.cleardb.net',database='heroku_c42eab1ee628ff3')
     c = conn.cursor()
