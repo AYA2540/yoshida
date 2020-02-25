@@ -59,6 +59,7 @@ img {
 
 input[type="submit"] {
     border-radius: 0;
+    border: none;
 }
 
 /* --------------------------------------------------- */
@@ -293,11 +294,13 @@ form {
 }
 
 #login_form input {
-    line-height: 30px;
     margin-top: 10px;
+    height: 40px;
+    width: 280px;
 }
 
 .login_btn {
+    font-size: 16px;
     background-color: #209000;
     color: white;
     border: 1px solid #209000;
