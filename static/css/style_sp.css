@@ -57,6 +57,10 @@ img {
     vertical-align: bottom;
 }
 
+input[type="submit"] {
+    border-radius: 0;
+}
+
 /* --------------------------------------------------- */
 
 body {
