@@ -38,7 +38,7 @@ def enter_yes(id):
     c.execute("update users set flag = 1 where id = %s" ,(id,))
     conn.commit()
     conn.close()
-    return redirect("/berb7kjfp5v6")
+    return redirect("/ssqh6pvqj6bawelcome")
 
 # 退店ボタンを押した時
 @app.route("/hiw5lfsmmj3zout_yes/<int:id>")
@@ -51,7 +51,7 @@ def out_yes(id):
     c.execute("update times set out_time = %s where user_id = %s and out_time is null" ,(out_time ,id))
     conn.commit()
     conn.close()
-    return redirect("/berb7kjfp5v6")
+    return redirect("/ixm7uuz0anrnthanks")
 
 # ログイン
 @app.route("/apyaig9e2qfxlogin", methods=["GET","POST"])
