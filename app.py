@@ -14,7 +14,7 @@ def pass_gen(size=12):
     chars = string.ascii_uppercase + string.ascii_lowercase + string.digits + '%&$#()'
     return ''.join(secrets.choice(chars) for x in range(size))
 
-@app.route("/wRqZejFP_8X!")
+@app.route("/wRqZejFP_8X")
 def user_list():
     # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
     conn = mysql.connector.connect(user='be0df0a2c105ea',password='71cdc06b',host='us-cdbr-iron-east-04.cleardb.net',database='heroku_c42eab1ee628ff3')
@@ -38,7 +38,7 @@ def enter_yes(id):
     c.execute("update users set flag = 1 where id = %s" ,(id,))
     conn.commit()
     conn.close()
-    return redirect("/welcome")
+    return redirect("/S5D$7esCgLM(")
 
 # 退店ボタンを押した時
 @app.route("/YPk~v.rPh#v8/<int:id>")
@@ -51,14 +51,14 @@ def out_yes(id):
     c.execute("update times set out_time = %s where user_id = %s and out_time is null" ,(out_time ,id))
     conn.commit()
     conn.close()
-    return redirect("/thanks")
+    return redirect("/YPk~v.rPh#v8")
 
 # ログイン
-@app.route("/HBZT!,+FQhi*", methods=["GET","POST"])
+@app.route("/HBZT,+FQhi*", methods=["GET","POST"])
 def login():
     if request.method == "GET":
         if "user_id" in session:
-            return redirect("/enter")
+            return redirect("/SwWn#*CW*z/,")
         else:
             return render_template("login.html")
     else:
@@ -89,7 +89,7 @@ def login():
                 return render_template("login.html")
             else:
                 session['user_id'] = user_id[0]
-                return redirect("/enter")
+                return redirect("/SwWn#*CW*z/,")
         else:
             return render_template("login.html")
 
@@ -123,7 +123,7 @@ def enter():
         conn.close()
         return render_template("enter.html" , user_list = user_list , member = member , user_id = user_id)
     else:
-        return redirect("/login")
+        return redirect("/HBZT,+FQhi*")
 
 @app.route("/DijdZbQFXcUf" ,methods=["GET"])
 def welcome():
@@ -153,9 +153,9 @@ def owner():
             conn.close()
             return render_template("owner.html" , user_list = user_list , member = member)
         else:
-            return redirect("/enter")
+            return redirect("/SwWn#*CW*z/,")
     else:
-        return redirect("/login")
+        return redirect("/HBZT,+FQhi*")
 
 # 退会
 @app.route("/uKd4NC3T*fcR/<int:id>")
@@ -166,7 +166,7 @@ def del_trash(id):
     c.execute("delete from users where id = %s" , (id,))
     conn.commit()
     conn.close()
-    return redirect("/owner")
+    return redirect("/B8)$h9r|Zh6w")
 
 @app.route("/_WanMc2mx~3f", methods=["POST"])
 def regist():
@@ -179,16 +179,16 @@ def regist():
         c.execute("insert into users values(null,%s,%s,0,%s)",(name,password,salt))
         conn.commit()
         conn.close()
-        return redirect("/owner")
+        return redirect("/B8)$h9r|Zh6w")
 
-@app.route("/ihXW3ay/!5CY")
+@app.route("/ihXW3ay/5CY")
 def ownerregist():
         return render_template("ownerregist.html")
 
 @app.route("/Av4|4cV+sRm9")
 def logout():
     session.pop("user_id" ,None)
-    return redirect("/login")
+    return redirect("/HBZT,+FQhi*")
 
 if __name__ == "__main__":
     app.run()
