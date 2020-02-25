@@ -59,7 +59,7 @@ img {
 
 input[type="submit"] {
     -webkit-appearance: none;
-    border-radius: 0;
+    border-radius: 6px;
     border: none;
 }
 
@@ -147,10 +147,11 @@ table {
 
 .no_btn {
     background-color: #FF4A4D;
+    border: none;
 }
 
 .btn {
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     width: 120px;
     height: 80px;
