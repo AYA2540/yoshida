@@ -27,7 +27,7 @@ def user_list():
     return render_template("list.html" , user_list = user_list)
 
 # 入店ボタンを押した時
-@app.route("/S5D$7esCgLM(", methods=["POST"])
+@app.route("/S5D$7esCgLM(/<int:id>", methods=["POST"])
 def enter_yes(id):
     guest = request.form.get("number")
     enter_time = datetime.now().strftime("%m/%d %H:%M")
@@ -38,7 +38,7 @@ def enter_yes(id):
     c.execute("update users set flag = 1 where id = %s" ,(id,))
     conn.commit()
     conn.close()
-    return redirect("/S5D$7esCgLM(")
+    return redirect("/wRqZejFP_8X")
 
 # 退店ボタンを押した時
 @app.route("/YPk~v.rPh#v8/<int:id>")
@@ -51,7 +51,7 @@ def out_yes(id):
     c.execute("update times set out_time = %s where user_id = %s and out_time is null" ,(out_time ,id))
     conn.commit()
     conn.close()
-    return redirect("/YPk~v.rPh#v8")
+    return redirect("/wRqZejFP_8X")
 
 # ログイン
 @app.route("/HBZT,+FQhi*", methods=["GET","POST"])
