@@ -132,13 +132,11 @@ table {
     top: 12px;
     right: 12px;
     color: rgba(128, 128, 128, 0.46);
-    cursor: pointer;
 }
 
 .yes_btn {
     background-color: #7BC576;
     margin-right: 10px;
-    cursor: pointer;
 }
 
 .no_btn {
@@ -194,7 +192,6 @@ form {
     width: 160px;
     height: 40px;
     margin-right: 20px;
-    cursor: pointer;
 }
 
 .store p {
@@ -235,7 +232,6 @@ form {
 
 .del_btn {
     display: none;
-    cursor: pointer;
     width: 60px;
     color: red;
 }
