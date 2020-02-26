@@ -195,7 +195,7 @@ def ownerregist():
         c.execute("insert into users values(1,%s,%s,0,%s)",(name,password,salt))
         conn.commit()
         conn.close()
-        return redirect("/apyaig9e2qfxlogin")
+        return render_template("login.html")
 
 @app.route("/dh4vsbhfanj8logout")
 def logout():
