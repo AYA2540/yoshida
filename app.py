@@ -181,9 +181,21 @@ def regist():
         conn.close()
         return redirect("/u2rdvj15g8q6owner")
 
-@app.route("/fi3hpxadupvaownerregist")
+@app.route("/fi3hpxadupvaownerregist", methods=["GET","POST"])
 def ownerregist():
+    if request.method == "GET":
         return render_template("ownerregist.html")
+    else:
+        name = request.form.get("name")
+        salt = pass_gen()
+        password = bcrypt.generate_password_hash(request.form.get("password") + salt).decode('utf-8')
+        # conn = mysql.connector.connect(user='root',password='A7RmwDLh-Uci',host='127.0.0.1',database='yoshida')
+        conn = mysql.connector.connect(user='be0df0a2c105ea',password='71cdc06b',host='us-cdbr-iron-east-04.cleardb.net',database='heroku_c42eab1ee628ff3')
+        c = conn.cursor()
+        c.execute("insert into users values(1,%s,%s,0,%s)",(name,password,salt))
+        conn.commit()
+        conn.close()
+        return redirect("/apyaig9e2qfxlogin")
 
 @app.route("/dh4vsbhfanj8logout")
 def logout():
